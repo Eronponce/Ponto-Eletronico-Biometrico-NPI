@@ -1,0 +1,55 @@
+<!--Tela de Login-->
+<!DOCTYPE html>
+<html lang="pt-br"></html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NPI</title>
+    <link rel="stylesheet" href="estilos/style1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav style="width: 100%; top: 0px; left: 0px; position:absolute">
+            <p class="logo">Ponto Eletrônico - NPI</p>
+            
+            <a class="navbar-brand" href="#">
+              <img src="logo-unifil.png" width="50" height="50" style="left: 250px; top:9px; position: absolute" display="flex" alt="imagem">
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <div id="login">
+                <form id="formulario" method="post" accept="" action="file:///C:/Users/renat/OneDrive/Documentos/projetos-web/site-ponto-eletronico/registro-ponto.html">
+                    <h2>Login</h2>
+                    <p>
+                        <label>Seu e-mail:</label>
+                        <input type="email" name="e-mail" placeholder="seu.email@edu.unifil.br" id="valor">
+                    </p>
+                    <p>
+                        <label>Sua senha:</label>
+                        <input type="password" name="senha" placeholder="Digite sua senha">
+                    </p>
+                    <button id="entrar" value="Ir para registro-ponto" onclick="irParaRegistroPonto()">Entrar</button>
+                    <h3 id="digito"></h3>
+                    <p>Ainda não tem uma conta?
+                        <a href="file:///C:/Users/renat/OneDrive/Documentos/projetos-web/site-ponto-eletronico/cadastro.html">Cadastre-se</a>
+                    </p>    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/login.js" defer></script>
+
+    <footer >
+        <p>@Copyrigh 2022 by Renata Gransoti</p>
+    </footer>
+</body>
+
+</html>

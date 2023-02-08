@@ -1,0 +1,36 @@
+Botão "Cadastrar-se" = gerar tabela com todas informações inseridas pelo usuário
+Botão "Login" = gerar data e horário local automaticamente e inserir em uma tabela (1 tabela para cada dia/tabela mais recente "em cima")
+Refazer página "registro-ponto" de data/horário manual --> data/horário automático
+Fazer página "relatório" = gerar relatório semanal/mensal/anual
+Fazer página "perfil do usuário" = após login, o aluno consegue ver o próprio ponto de forma individual e alterar informações do cadastro (ex: período)
+    Inserir foto na página "perfil de usuário" 
+
+
+css para side bar:
+/*
+.main-sidebar {
+    border-right: 1px solid #d2d6de;
+    padding-top: 70px;
+    font-size: 18px;
+}
+
+ .main-sidebar {
+    background-color: #5a9d91;
+}
+.main-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    min-height: 100%;
+    width: 230px;
+    z-index: 810;
+}
+.sidebar-menu li>a {
+    position: block;
+}
+
+.sidebar-menu>li>a {
+    padding: 12px 5px 12px 15px;
+    display: block;
+}*/
