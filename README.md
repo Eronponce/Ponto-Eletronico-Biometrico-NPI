@@ -97,85 +97,88 @@ Para o desenvolvimento desse projeto, utilizamos as seguintes bibliotecas, frame
 <!-- Esquematico -->
 ### Esquematico
 
+<ul>
+<li>Esquema Eletrônico</li>
+<li>Esquema Impressão 3D:
+
+</li>
+</ul>
+
 <!-- Custos -->
 ### Custos
 
-<p>Ola mundo</p>
+| Itens | Quantidade | Valor |
+|:-------------|:-------------:|:-------------:|
+| Botão Arduino | 1 | 0,50 |
+| Cabos Arduino | 9 | 4,50 |
+| Cabo Micro USB | 1 | 15,00 |
+| Display OLED 128x64 Px | 1 | 28,90 |
+| Modulo Wifi ESP8266 NodeMCU ESP-12E | 1 | 86,70 |
+| Sensor Leitor Biométrico Impressão Digital Dy50 Para Arduino | 1 | 50,40  |
+| Total | 1 | 186,00 |
 
 <!-- Como Usar -->
-## Usage
+<a id="usage"></a>
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+## Como usar
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Para utilizar o projeto você deve pressionar por 5 segundos o botão para cadastrar a digital e depois para verificar a digital basta pressionar o botão.
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
-
-
-
 <!-- GETTING STARTED -->
-## Getting Started
+<a id="getting-started"></a>
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+
+### 🗄️Construindo o seu banco de dados
+
+Para utilizar esse projeto você deverá criar a sua planilha no google sheets e incoporar o código dela na sessão determinada no código.
+
+
 
 
 <a id="prerequisites"></a>
 
 ## 💻 Pré-requisitos
 
+Antes de começar, verifique se você baixou todas as dependencias:
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
+Instalar as dependencias do esp8266
+* `<http://arduino.esp8266.com/stable/package_esp8266com_index.json>`
 
-* Instalar as dependencias do esp8266 `<http://arduino.esp8266.com/stable/package_esp8266com_index.json>`
-* Instalar a IDE do Arduino `<https://www.arduino.cc/en/software>`
-* Instalar a Biblioteca do esp8266 `<esp8266 by esp8266 community>`
-* Instalação do conversor USB Serial `<NodeMCU V2 / ESP32 com conversor USB serial CP210x>`
-* Instalação do conversor USB Serial `<NodeMCU com conversor USB serial CH340G (V3)>`
-* Instalação da biblioteca fingerprint `<ESP8266WiFi.h/Adafruit_Fingerprint.h/WiFiClientSecure.h>`
-  ```
+Instalar a IDE do Arduino 
+* `<https://www.arduino.cc/en/software>`
+  
+Instalar a Biblioteca do esp8266
+* `<esp8266 by esp8266 community>`
 
-### Installation
+Instalação do conversor USB Serial 
+* `<NodeMCU V2 / ESP32 com conversor USB serial CP210x>`
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Instalação do conversor USB Serial
+* `<NodeMCU com conversor USB serial CH340G (V3)>`
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+Instalação da biblioteca fingerprint 
+* `<ESP8266WiFi.h/Adafruit_Fingerprint.h/WiFiClientSecure.h>`
+  
+<!-- CONTRIBUINDO -->
+<a id="contributing"></a>
 
-<p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
+## 💰 Contribuindo
 
+Se você tem uma sugestão que possa melhorar este projeto, por favor, faça um fork do repositório e crie um pull request. Você também pode simplesmente abrir uma issue com a tag "enhancement" (melhoria).
+Não esqueça de dar uma estrela ao projeto! Muito obrigado!
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Faça um Fork do Projeto
+2. Crie a sua Branch de Recurso (git checkout -b recurso/RecursoIncrivel)
+3. Faça o Commit das suas alterações (git commit -m 'Adicione algum RecursoIncrivel')
+4. Faça o Push para a Branch (git push origin recurso/RecursoIncrivel)
+5. Abra um Pull Request
 
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 
 <!-- Colaboradores -->
-
 ## 🤝 Colaboradores
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <a id='colaboradores'></a>
@@ -210,7 +213,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 
 <!-- CONTACT -->
-##  📞 Contato
+## 📞 Contato
 
 <a id="contato"></a>
 
