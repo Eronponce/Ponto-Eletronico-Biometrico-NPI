@@ -14,7 +14,7 @@
   <p align="center">
     Sistema de ponto biométrico feito com ESP32
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explorar Arquivo»</strong></a>
+    <a href="https://github.com/Eronponce/Ponto-Eletronico-Prot-tipo"><strong>Explorar Arquivo»</strong></a>
     <br />
     <a href="https://youtu.be/2p1bW34Ef7o">Demo</a>
     ·
