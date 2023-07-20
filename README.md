@@ -95,13 +95,11 @@ Para o desenvolvimento desse projeto, utilizamos as seguintes bibliotecas, frame
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 <!-- Esquematico -->
-### Esquematico
+### Esquematicos
 
 <ul>
-<li>Esquema Eletrônico</li>
-<li>Esquema Impressão 3D:
-
-</li>
+<li><a href="https://i0.wp.com/electronicsinnovation.com/wp-content/uploads/2019/09/Circuit-Diagram_IoT-Based-Fingerprint-Biometric-Attendance-System.jpg?resize=640%2C244&ssl=1" target="_blank">Esquema Eletrônico</li></a>
+<li><a href="https://github.com/Eronponce/Ponto-Eletronico-Biometrico-NPI/blob/main/Impress%C3%A3o%203D/Caixa%20ponto%20eletronico.stl" target="_blank">Esquema Impressão 3D</a></li>
 </ul>
 
 <!-- Custos -->
@@ -133,6 +131,8 @@ Para utilizar o projeto você deve pressionar por 5 segundos o botão para cadas
 ### 🗄️Construindo o seu banco de dados
 
 Para utilizar esse projeto você deverá criar a sua planilha no google sheets e incoporar o código dela na sessão determinada no código.
+
+<a href="https://www.youtube.com/watch?v=aNjkNmHRx4o&t=227s" target="_blank">Tutorial Criação de banco de dados</a>
 
 
 
@@ -194,7 +194,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://pps.whatsapp.net/v/t61.24694-24/340053964_987266349323018_3626577910372774478_n.jpg?ccb=11-4&oh=01_AdQXUH2emrPjEMJqiFBfleGDv1DWHtkqsDiErCEPtOvOTw&oe=64B96FA4" width="100px;" alt="Foto"/><br>
+        <img src="https://pps.whatsapp.net/v/t61.24694-24/340053964_987266349323018_3626577910372774478_n.jpg?ccb=11-4&oh=01_AdRocbbeTHh7G-5NYQ7Ank4fYXnXXOcAFih9iHnbDP4W4A&oe=64C69EA4" width="100px;" alt="Foto"/><br>
         <sub>
           <b>Eron Ponce</b>
         </sub>
