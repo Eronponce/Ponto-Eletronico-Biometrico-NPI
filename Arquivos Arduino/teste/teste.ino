@@ -35,16 +35,17 @@ const char* GAS_ID = "AKfycbzZnwU0cFINui6qhKp7S0Km4HOMw5ZJ73aHNaVUD2d-C2gmGDJtAs
 
 
 //Objeto responsável por controlar o sensor de digitais
+SoftwareSerial mySerial(D5, D6);
 Adafruit_Fingerprint fingerprintSensor = Adafruit_Fingerprint(&mySerial);
-SoftwareSerial mySerial(D7, D5); // Configura as portas do sensor biométrico
 
 
 
-SSD1306Wire  display(0x3c, D2, D0); // Configura as portas do OLED
+
+SSD1306Wire  display(0x3c, D3, D1); // Configura as portas do OLED
 
 
 //Variáveis globais que serão utilizadas ao longo do programa
-int botao = D4; //Define o botão de acionamento como D1
+int botao = D7; //Define o botão de acionamento como D7
 uint8_t id;
 int counter = 1;
 
@@ -81,7 +82,7 @@ void loop()
     { // verifica se a string lida é 'm'
        printMenu();
     }
-
+  
   if (digitalRead(botao) == 1)
     {
     checkFingerprint();
@@ -200,7 +201,13 @@ void storeFingerprint() // Função para armazenar digitais
   }
 
   //Lê o que foi digitado no monitor serial
-  Serial.println(F("Encoste o dedo no sensor"));
+  display.clear();
+  display.setTextAlignment(TEXT_ALIGN_CENTER);
+  //Seleciona a fonte
+  display.setFont(ArialMT_Plain_16);
+  display.drawString(63, 10, "Encoste o dedo"); // Exibe a mensagem centralizada
+  display.drawString(63, 26, "no sensor"); // Exibe a mensagem centralizada
+  display.display();
 
   //Espera até pegar uma imagem válida da digital
   while (fingerprintSensor.getImage() != FINGERPRINT_OK) yield();
@@ -213,7 +220,13 @@ void storeFingerprint() // Função para armazenar digitais
     return;
   }
   
-  Serial.println(F("Tire o dedo do sensor"));
+  display.clear();
+  display.setTextAlignment(TEXT_ALIGN_CENTER);
+  //Seleciona a fonte
+  display.setFont(ArialMT_Plain_16);
+  display.drawString(63, 10, "Tire o dedo"); 
+  display.drawString(63, 26, "do sensor"); 
+  display.display();
 
   delay(2000);
 
@@ -221,7 +234,15 @@ void storeFingerprint() // Função para armazenar digitais
   while (fingerprintSensor.getImage() != FINGERPRINT_NOFINGER) yield();
 
   //Antes de guardar precisamos de outra imagem da mesma digital
-  Serial.println(F("Encoste o mesmo dedo no sensor"));
+  display.clear();
+  display.setTextAlignment(TEXT_ALIGN_CENTER);
+  // Seleciona a fonte
+  display.setFont(ArialMT_Plain_16);
+  
+  display.drawString(63, 10, "Encoste o mesmo"); 
+  display.drawString(63, 26, "dedo no sensor"); 
+  display.display();
+
 
   //Espera até pegar uma imagem válida da digital
   while (fingerprintSensor.getImage() != FINGERPRINT_OK) yield();
@@ -257,9 +278,23 @@ void storeFingerprint() // Função para armazenar digitais
 //Verifica se a digital está cadastrada
 void checkFingerprint() // Função para checkar digitais
 {
+  display.clear();
+  display.setTextAlignment(TEXT_ALIGN_CENTER);
+  // Seleciona a fonte
+  display.setFont(ArialMT_Plain_16);
+  display.drawString(63, 10, "Remova o dedo");
+  display.drawString(63, 26, "Do botão");
   drawImageVerificaDigital ();
+  
   Serial.println(F("Encoste o dedo no sensor"));
-
+  
+  delay(1000);
+   if (digitalRead(botao) == 1)
+    {
+   storeFingerprint();
+       }
+  
+  
   //Espera até pegar uma imagem válida da digital
   while (fingerprintSensor.getImage() != FINGERPRINT_OK) yield();
 
@@ -280,17 +315,23 @@ void checkFingerprint() // Função para checkar digitais
 
   }
 
-  Serial.print(F("Digital encontrada com confiança de "));
+  
   display.clear();
   display.setTextAlignment(TEXT_ALIGN_CENTER);
-  //Seleciona a fonte
+  // Seleciona a fonte
   display.setFont(ArialMT_Plain_16);
   display.drawString(63, 10, "Digital reconhecida!");
-  display.drawString(63, 45, "Sucesso!");
-  display.display(); 
+  display.drawString(63, 26, "Sucesso!");
+  display.drawString(63, 45, "Posição: " + String(fingerprintSensor.fingerID));
+
+  display.display();
+
+  // Exibir mensagem no Serial Monitor
+  Serial.print(F("Digital encontrada com confiança de "));
   Serial.print(fingerprintSensor.confidence);
   Serial.print(F(" na posição "));
   Serial.println(fingerprintSensor.fingerID);
+  delay(5000);
   update_google_sheet(fingerprintSensor.fingerID);
   
 }
@@ -480,6 +521,7 @@ void drawImageBiometriaErro() {
   display.clear();
   display.drawXbm(34, 1, width_image, height_image, logo_biometria_erro);
    display.display();
+   delay(2000);
 }
 
 void drawProgressBarDemo() {
