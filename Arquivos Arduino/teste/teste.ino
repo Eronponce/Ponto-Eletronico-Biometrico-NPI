@@ -52,11 +52,12 @@ int counter = 1;
 
 void setup() //Void Setup
 {
-  Serial.begin(9600);
+  
   Serial.begin(115200);
   setupFingerprintSensor();   //Inicializa o sensor de digitais
   display.init();
   display.flipScreenVertically();
+  telainicial();
 }
 
 void setupFingerprintSensor() //Inicia o sensor biométrico
@@ -72,26 +73,32 @@ void setupFingerprintSensor() //Inicia o sensor biométrico
     while(true) yield();
   }
 }
- 
-void loop()
+ void loop()
 {
-  //Exibe o menu no monitor serial
-  // verifica se há dados disponíveis na porta serial
-  String c = Serial.readStringUntil('\n'); // lê uma string do monitor serial
+  // Verifica se há dados disponíveis na porta serial
+  String c = Serial.readStringUntil('\n'); // Lê uma string do monitor serial
   if (c.equals("m")) 
-    { // verifica se a string lida é 'm'
-       printMenu();
-    }
+  { // Verifica se a string lida é 'm'
+    printMenu();
+  }
   
-  if (digitalRead(botao) == 1)
-    {
-    checkFingerprint();
-    }
+  // Lê o estado atual do botão
+  int buttonState = digitalRead(botao);
 
+  // Verifica se o botão foi pressionado (transição de LOW para HIGH)
+  static int lastButtonState = LOW;
+  if (buttonState == HIGH && lastButtonState == LOW)
+  {
+    checkFingerprint();
     display.clear();
     telainicial();
     display.display();
+  }
+
+  // Atualiza o estado anterior do botão
+  lastButtonState = buttonState;
 }
+
 
 void update_google_sheet(int _id)
 {
@@ -278,16 +285,9 @@ void storeFingerprint() // Função para armazenar digitais
 //Verifica se a digital está cadastrada
 void checkFingerprint() // Função para checkar digitais
 {
-  display.clear();
-  display.setTextAlignment(TEXT_ALIGN_CENTER);
-  // Seleciona a fonte
-  display.setFont(ArialMT_Plain_16);
-  display.drawString(63, 10, "Remova o dedo");
-  display.drawString(63, 26, "Do botão");
   drawImageVerificaDigital ();
   
   Serial.println(F("Encoste o dedo no sensor"));
-  
   delay(1000);
    if (digitalRead(botao) == 1)
     {
@@ -502,7 +502,7 @@ void drawImageVerificado() {
   display.clear();
   display.drawXbm(34, 1, width_image, height_image, logo_verificado);
    display.display();
-   delay(3000);
+   delay(1000);
 }
 
 void drawImageImpressaoDigital() {
