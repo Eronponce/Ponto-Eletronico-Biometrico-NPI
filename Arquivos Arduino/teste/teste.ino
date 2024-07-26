@@ -73,32 +73,32 @@ void setupFingerprintSensor() //Inicia o sensor biométrico
     while(true) yield();
   }
 }
- void loop() {
-  static unsigned long buttonPressStartTime = 0; // Variable to store the time when the button is pressed
-  static bool buttonPressed = false; // Flag to track if the button is pressed
-
-  // Check if the button is pressed
+ void loop()
+{
+  // Verifica se há dados disponíveis na porta serial
+  String c = Serial.readStringUntil('\n'); // Lê uma string do monitor serial
+  if (c.equals("m")) 
+  { // Verifica se a string lida é 'm'
+    printMenu();
+  }
+  
+  // Lê o estado atual do botão
   int buttonState = digitalRead(botao);
-  if (buttonState == HIGH && !buttonPressed) { // Button pressed
-    buttonPressStartTime = millis(); // Record the time when the button is pressed
-    checkFingerprint(); // Immediately check the fingerprint
-    buttonPressed = true; // Update button state
-  } else if (buttonState == LOW && buttonPressed) { // Button released
-    buttonPressed = false; // Update button state
+
+  // Verifica se o botão foi pressionado (transição de LOW para HIGH)
+  static int lastButtonState = LOW;
+  if (buttonState == HIGH && lastButtonState == LOW)
+  {
+    checkFingerprint();
+    display.clear();
+    telainicial();
+    display.display();
   }
 
-  // Check if the button is held for 10 seconds
-  if (buttonPressed && millis() - buttonPressStartTime >= 10000) {
-    // If the button is held for 10 seconds, register a fingerprint
-    storeFingerprint();
-    // Wait until the button is released before proceeding
-    while (digitalRead(botao) == HIGH) {
-      delay(100); // Wait for 100 milliseconds
-    }
-    // Reset buttonPressed flag
-    buttonPressed = false;
-  }
+  // Atualiza o estado anterior do botão
+  lastButtonState = buttonState;
 }
+
 
 void update_google_sheet(int _id)
 {
